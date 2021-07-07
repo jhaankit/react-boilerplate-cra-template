@@ -21,7 +21,9 @@ In this case, the app won't show anything while loading your component. You can,
 import * as React from 'react';
 import { lazyLoad } from 'utils/loadable';
 
-export const HomePage = lazyLoad(() => import('./index'), {
+export const HomePage = lazyLoad(
+  () => import('./index'), 
+  module => module.HomePage,{
   fallback: <div>Loading...</div>,
 });
 ```
